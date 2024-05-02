@@ -20,7 +20,11 @@ request.setCharacterEncoding("UTF-8");
 </header>
 <section>
     <h2> Regist Form </h2>
-    
+        <form action="/user/regist" method="post" class=form>
+    	아이디<input type="text" name="id" placeholder="id"><br>
+    	비밀번호<input type="password" name="pwd" placeholder="password"><br>
+    	<input type="submit" value="회원가입">  
+    	</form>
 </section>
 <footer>
 

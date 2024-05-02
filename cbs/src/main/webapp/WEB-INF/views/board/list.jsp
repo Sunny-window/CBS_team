@@ -26,11 +26,11 @@ request.setCharacterEncoding("UTF-8");
     		<th>제목</th>
     		<th>작성자</th>
     	</tr>
-    <c:forEach var="list" items="${list }">
+    <c:forEach var="board" items="${list }">
     	<tr>
-    		<td>${list.bno }</td>
-    		<td><a href="/board/detail"></a>${list.title }</td>
-    		<td>${list.writer }</td>
+    		<td>${board.bno }</td>
+    		<td><a href="/board/detail">${board.title }</a></td>
+    		<td>${board.writer }</td>
     	</tr>
     </c:forEach>
     </table>
