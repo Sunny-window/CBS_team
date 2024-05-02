@@ -43,4 +43,10 @@ public class BoardController {
     public String write(){
         return "redirect:/board/list";
     }
+
+    @RequestMapping("/listForMe")
+    public String listForMe(){
+        // DB에서 나한테 온 게시글만 리스트로 가져오기
+        return "/user/userPage";
+    }
 }
