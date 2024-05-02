@@ -29,11 +29,11 @@ request.setCharacterEncoding("UTF-8");
     		<th>공개범위</th>
     	</tr>
     	<tr>
-    		<td>${list.bno }</td>
-    		<td>${list.title }</td>
-    		<td>${list.content }</td>
-    		<td>${list.writer }</td>
-    		<td>${list.reader }</td>
+    		<td>${board.bno }</td>
+    		<td>${board.title }</td>
+    		<td>${board.content }</td>
+    		<td>${board.writer }</td>
+    		<td>${board.reader }</td>
     	</tr>
     </table>
 </section>

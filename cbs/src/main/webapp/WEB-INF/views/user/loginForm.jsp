@@ -11,7 +11,15 @@ request.setCharacterEncoding("UTF-8");
     <meta charset="UTF-8">
     <title></title>
 <style>
-
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
+	.form:hover{
+		color: sky;
+	}
 </style>
 </head>
 <body>
@@ -20,11 +28,14 @@ request.setCharacterEncoding("UTF-8");
 </header>
 <section>
     <h2> Login Form </h2>
-    
+    <form action="/user/login" method="post" class=form>
+    	아이디<input type="text" name="id" placeholder="id를 입력해주세요"><br>
+    	비밀번호<input type="password" name="pwd" placeholder="password를 입력해주세요"><br>
+    	<input type="submit" value="로그인">  
+    </form>
 </section>
 <footer>
 
 </footer>
-
 </body>
 </html>

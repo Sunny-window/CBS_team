@@ -11,7 +11,14 @@ request.setCharacterEncoding("UTF-8");
     <meta charset="UTF-8">
     <title></title>
 <style>
-
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	h2{
+		font-size: midium;
+	}
 </style>
 </head>
 <body>
@@ -20,7 +27,23 @@ request.setCharacterEncoding("UTF-8");
 </header>
 <section>
     <h2> My page </h2>
-    
+    <h4>내 프로필</h4>
+	아이디<span>${session.id }</span>
+	
+	<h4>나한테 온 게시물 보기</h4>
+	    <table border="1">
+    	<tr>
+    		<th>번호</th>
+    		<th>제목</th>
+    		<th>작성자</th>
+    	</tr>
+    <c:forEach var="board" items="${list }">
+    	<tr>
+    		<td>${board.bno }</td>
+    		<td><a href="/board/detail">${board.title }</a></td>
+    		<td>${board.writer }</td>
+    	</tr>
+    </c:forEach>
 </section>
 <footer>
 
