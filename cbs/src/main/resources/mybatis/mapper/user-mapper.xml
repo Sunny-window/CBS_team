@@ -5,12 +5,13 @@
   
   <mapper namespace="con.green.cbs.dao.UserDao">
  	 <select id="login" resultType="com.green.cbs.dto.UserDto">
-  		SELECT id, pwd FROM members where id = #{param1} and pwd = #{param2}
+  		SELECT count(id) FROM members where id = #{param1} and pwd = #{param2}
   	 </select>
   	 <insert id="regist">
-		INSERT into members (id, pwd) VALUES (#{param1} , #{pwd})
+		INSERT into members (id, pwd) VALUES (#{param1} , #{param2})
   	 </insert>
   	 <select id="idCheck" resultType="com.green.cbs.dto.UserDto">
-  	 	SELECT id FROM members WHERE id = #{param1}
+  	 	SELECT count(id) FROM members WHERE id = #{param1}
+  	 	
   	 </select>
   </mapper>
