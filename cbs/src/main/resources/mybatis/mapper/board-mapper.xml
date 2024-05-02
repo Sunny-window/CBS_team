@@ -4,13 +4,13 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.green.cbs.dao.BoardDao">
-  	<select id="getList" resultType="com.example.cbs.dto.BoardDto">
+  	<select id="getList" resultType="com.green.cbs.dto.BoardDto">
   		SELECT * FROM boards
   	</select>
-  	<select id="get" resultType="com.example.cbs.dto.BoardDto">
+  	<select id="get" resultType="com.green.cbs.dto.BoardDto">
   		SELECT * FROM boards WHERE bno = #{param1}
   	</select>
-  	<select id="getForMeList" resultType="com.example.cbs.dto.BoardDto">
+  	<select id="getForMeList" resultType="com.green.cbs.dto.BoardDto">
   		SELECT * FROM boards WHERE reader = #{param1}
   	</select>
   	<insert id="write">
