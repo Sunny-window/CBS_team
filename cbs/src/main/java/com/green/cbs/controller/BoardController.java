@@ -1,14 +1,24 @@
 package com.green.cbs.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.green.cbs.dto.BoardDto;
+import com.green.cbs.service.BoardService;
+
 
 @Controller
 @RequestMapping("/board")
 public class BoardController {
 
-    @RequestMapping("/list")
-    public String home(){
+    @Autowired
+    BoardService service;
+    
+    @RequestMapping({"/list","/"})
+    public String listView(Model model){
+        model.addAttribute("list",service.getList());
         return "/board/list";
     }
     
@@ -26,7 +36,7 @@ public class BoardController {
 
     @RequestMapping("/writeForm")
     public String writeForm(){
-        return "/board/write";
+        return "/board/writeForm";
     }
     
     @RequestMapping("/write")

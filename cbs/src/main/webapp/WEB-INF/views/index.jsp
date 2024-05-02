@@ -21,7 +21,7 @@ request.setCharacterEncoding("UTF-8");
 <section>
     <ul>
         <c:if test="${session.id == null}">
-        <li> <a href="board/list"> 자유 게시판 </a> </li>
+        <li> <a href="board/"> 자유 게시판 </a> </li>
         <li> <a href="user/loginForm"> 로그인 </a> </li>
         <li> <a href="user/registForm"> 회원가입 </a> </li>
         </c:if>
