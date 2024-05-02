@@ -15,7 +15,7 @@ public class BoardService {
     BoardDao dao;
     
     public List<BoardDto>  getList(){
-
-        return null;
+        List<BoardDto> list = dao.getList();
+        return list;
     } 
 }
