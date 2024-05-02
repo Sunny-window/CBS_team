@@ -22,7 +22,7 @@ public class UserController {
     @RequestMapping("/userPage")
     public String userPage(){
     	
-    	return "/user/userPage";
+    	return "/board/listForMe";
     }
     
     @RequestMapping("/regist")
@@ -84,10 +84,14 @@ public class UserController {
          
          session.invalidate();
     	
-    	return "/user/loginForm";
+    	return "../index";
     }
     
-    
+    @RequestMapping("/loginForm")
+    public String loginForm() {
+    	
+    	return "/user/loginForm";
+    }
     
     
 }

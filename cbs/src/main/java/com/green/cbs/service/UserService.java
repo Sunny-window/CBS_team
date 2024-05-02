@@ -24,7 +24,15 @@ public class UserService {
     
     public int idCheck(String id) {
     	
-    	return dao.idCheck(id);
+    	if(id.length() > 12) {
+    		
+    		return 0;
+    		
+    	}else {
+    		
+    		return dao.idCheck(id);
+    	}
+    	
     }
     
     
