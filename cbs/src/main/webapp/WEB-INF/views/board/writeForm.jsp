@@ -20,7 +20,26 @@ request.setCharacterEncoding("UTF-8");
 </header>
 <section>
     <h2> WriteForm </h2>
-    
+    <form action="/board/write" method="post">
+    <table border="1"></table>
+    	<tr>
+    		<th>title</th>
+    		<td><input type="text" name="title"></td>
+    	</tr>
+    	<tr>
+    		<th>content</th>
+    		<td><input type="text" name="content"></td>
+    	</tr>
+    	<tr>
+    		<th>writer</th>
+    		<td><input type="text" name="writer"></td>
+    	</tr>
+    	<tr>
+    		<th>reader</th>
+    		<td><input type="text" name="reader"></td>
+    	</tr>
+    	<input type="submit" value="등록">
+	</form>
 </section>
 <footer>
 

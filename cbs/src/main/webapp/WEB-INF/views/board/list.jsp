@@ -20,7 +20,20 @@ request.setCharacterEncoding("UTF-8");
 </header>
 <section>
     <h2> List </h2>
-    
+    <table border="1">
+    	<tr>
+    		<th>번호</th>
+    		<th>제목</th>
+    		<th>작성자</th>
+    	</tr>
+    <c:forEach var="list" items="${list }">
+    	<tr>
+    		<td>${list.bno }</td>
+    		<td><a href="/board/detail"></a>${list.title }</td>
+    		<td>${list.writer }</td>
+    	</tr>
+    </c:forEach>
+    </table>
 </section>
 <footer>
 

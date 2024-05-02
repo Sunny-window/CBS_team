@@ -20,7 +20,22 @@ request.setCharacterEncoding("UTF-8");
 </header>
 <section>
     <h2> Detail </h2>
-    
+    <table border="1">
+    	<tr>
+    		<th>번호</th>
+    		<th>제목</th>
+    		<th>내용</th>
+    		<th>작성자</th>
+    		<th>공개범위</th>
+    	</tr>
+    	<tr>
+    		<td>${list.bno }</td>
+    		<td>${list.title }</td>
+    		<td>${list.content }</td>
+    		<td>${list.writer }</td>
+    		<td>${list.reader }</td>
+    	</tr>
+    </table>
 </section>
 <footer>
 
