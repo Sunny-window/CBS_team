@@ -15,4 +15,17 @@ public class UserService {
         
         return result;
     }
+    
+    public void regist(String id, String pwd) {
+    	
+    	dao.regist(id, pwd);
+    	
+    }
+    
+    public int idCheck(String id) {
+    	
+    	return dao.idCheck(id);
+    }
+    
+    
 }
