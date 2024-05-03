@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.green.cbs.dto.BoardDto;
 import com.green.cbs.service.BoardService;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 
 @Controller
 @RequestMapping("/board")
@@ -23,13 +25,17 @@ public class BoardController {
     }
     
     @RequestMapping("/detail")
-    public String detail(){
+    public String detail(HttpServletRequest req, Model model){
+        String bno_ = req.getParameter("bno");
+        int bno = Integer.parseInt(bno_);
+        BoardDto dto = service.get(bno);
+        model.addAttribute("board", dto);
         return "/board/detail";
     }
     
     @RequestMapping("/delete")
     public String delete(){
-
+        
         
         return "redirect:/board/list";
     }
@@ -40,7 +46,14 @@ public class BoardController {
     }
     
     @RequestMapping("/write")
-    public String write(){
+    public String write(HttpServletRequest req){
+        String title = req.getParameter("title");
+        String content = req.getParameter("content");
+        String writer = req.getParameter("writer");
+        String reader = req.getParameter("reader");
+
+        service.write(new BoardDto(0, title, content, reader, writer));
+
         return "redirect:/board/list";
     }
 

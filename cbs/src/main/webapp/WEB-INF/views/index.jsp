@@ -20,12 +20,12 @@ request.setCharacterEncoding("UTF-8");
 </header>
 <section>
     <ul>
-        <c:if test="${session.id == null}">
+        <c:if test="${sessionScope.id == null}">
         <li> <a href="board/"> 자유 게시판 </a> </li>
         <li> <a href="user/loginForm"> 로그인 </a> </li>
         <li> <a href="user/registForm"> 회원가입 </a> </li>
         </c:if>
-        <c:if test="${session.id != null}">
+        <c:if test="${sessionScope.id != null}">
         <li> <a href="board/list"> 자유 게시판 </a> </li>
         <li> <a href="board/writeForm"> 게시글 작성 </a> </li>
         <li> <a href="user/userPage"> 마이페이지 </a> </li>

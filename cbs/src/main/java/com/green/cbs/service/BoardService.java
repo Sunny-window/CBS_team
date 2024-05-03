@@ -18,4 +18,21 @@ public class BoardService {
         List<BoardDto> list = dao.getList();
         return list;
     } 
+    
+    public BoardDto get(int bno){
+        return dao.get(bno);
+    }
+
+    public List<BoardDto> getForMeList(String reader){
+        
+        return dao.getForMeList(reader);
+    }
+
+    public void write(BoardDto boardDto){
+        dao.write(boardDto);
+    }
+
+    public void delete(int bno){
+        dao.delete(bno);
+    }
 }
