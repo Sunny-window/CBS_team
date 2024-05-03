@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <meta charset="UTF-8">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
 <!-- 폰트 첨부 -->
     <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
@@ -18,21 +19,65 @@
         .header *{
             text-align: center;
             font-size: 36px;
-            background-color: darkslategray;
-            margin-top: 8px;
-            margin-bottom: 8px;
+            font-style: normal;
+            color: orange;
+            background-color: beige;
+            line-height: 50px;
+            float: left;
         }
-        #header {
+        #header h1{
+       		font-family: "Gowun Dodum", sans-serif;
             text-decoration: none;
-            color: white;
+            font-weight: 200;
+        }
+        h1 a{
+        	text-decoration:none;
+        }
+        .menu{
+        	width: 800px;
+        	height:35px;
+        	float: right;
+        }
+        
+        .menu ul li{
+        background-color: beige;
+        list-style: none;
+        float: left;
+        line-height: 50px;
+        text-align: center;
+        }
+        
+        .menu a{
+        	width:190px;
+        	text-decoration:none;
+        	display: block;
+        	color: light blue;
+        	font-weight:bold;
+        }
+        .menu a:hover{
+        	background-color: lightblue;
+        	color:black;
         }
     </style>
 </head>
-
 <div class="header">
-    <h1> <a id="header" href="/"> CBS Team Project </a> </h1>
+	<div class="logo">
+    	<h1> <a id="header" href="/"> CBS Team Project </a> </h1>
+    </div>
+	<nav>
+	    <ul>
+	        <c:if test="${session.id == null}">
+	        <li> <a href="board/"> 자유 게시판 </a> </li>
+	        <li> <a href="user/loginForm"> 로그인 </a> </li>
+	        <li> <a href="user/registForm"> 회원가입 </a> </li>
+	        </c:if>
+	        <c:if test="${session.id != null}">
+	        <li> <a href="board/list"> 자유 게시판 </a> </li>
+	        <li> <a href="board/writeForm"> 게시글 작성 </a> </li>
+	        <li> <a href="user/userPage"> 마이페이지 </a> </li>
+	        <li> <a href="user/logout"> 로그아웃 </a> </li>
+	        </c:if>
+	    </ul>
+	</nav>    
 </div>
-<hr>
-<nav>
-
-</nav>
+<hr>    	

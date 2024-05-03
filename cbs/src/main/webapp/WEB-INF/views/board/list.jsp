@@ -29,7 +29,7 @@ request.setCharacterEncoding("UTF-8");
     <c:forEach var="board" items="${list }">
     	<tr>
     		<td>${board.bno }</td>
-    		<td><a href="/board/detail">${board.title }</a></td>
+    		<td><a href="/board/detail?bno=${board.bno }">${board.title }</a></td>
     		<td>${board.writer }</td>
     	</tr>
     </c:forEach>

@@ -17,7 +17,8 @@ request.setCharacterEncoding("UTF-8");
 		box-sizing: border-box;
 	}
 	h2{
-		font-size: midium;
+		font-size: x-large;
+		float:left;
 	}
 </style>
 </head>
@@ -28,7 +29,7 @@ request.setCharacterEncoding("UTF-8");
 <section>
     <h2> My page </h2>
     <h4>내 프로필</h4>
-	아이디<span>${session.id }</span>
+	아이디<span>${sessionScope.id }</span>
 	
 	<h4>나한테 온 게시물 보기</h4>
 	    <table border="1">
@@ -40,7 +41,7 @@ request.setCharacterEncoding("UTF-8");
     <c:forEach var="board" items="${list }">
     	<tr>
     		<td>${board.bno }</td>
-    		<td><a href="/board/detail">${board.title }</a></td>
+    		<td><a href="/board/detail?bno=${board.bno }">${board.title }</a></td>
     		<td>${board.writer }</td>
     	</tr>
     </c:forEach>
