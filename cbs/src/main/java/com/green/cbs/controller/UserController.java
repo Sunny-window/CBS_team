@@ -83,7 +83,7 @@ public class UserController {
          
          session.invalidate();
     	
-    	return "../index";
+    	return "/index";
     }
     
     @RequestMapping("/loginForm")
@@ -91,6 +91,5 @@ public class UserController {
     	
     	return "/user/loginForm";
     }
-    
     
 }
