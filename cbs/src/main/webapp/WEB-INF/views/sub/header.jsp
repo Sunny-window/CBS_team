@@ -16,8 +16,13 @@
             font-family: "Gowun Dodum", sans-serif;
             background-color: whitesmoke;
         }
+        .header{
+        	color: orange;
+        }
+        .header {
+        	display: block;
+        }
         .header *{
-        	
             text-align: center;
             font-size: 36px;
             font-style: normal;
@@ -25,13 +30,13 @@
             background-color: beige;
             line-height: 30px;
         }
-        #header h1{
+        #logo h1{
         	
        		font-family: "Gowun Dodum", sans-serif;
             text-decoration: none;
         }
         .logo{
-        	float: left;
+        	display:flex;
         	color: orange;
         }
         h1 a{
@@ -63,11 +68,10 @@
 </head>
 <div class="header">
 	<div class="logo">
-    	<h1> <a id="header" href="/"> CBS Team Project </a> </h1>
+    	<h1> <a id="logo" href="/"> CBS Team Project </a> </h1>
     </div>
     <div class="menu">
-		<nav>
-		    <ul>
+		    <ul id="nav">
 		        <c:if test="${sessionScope.id == null}">
 		        <li> <a href="/board/"> 자유 게시판 </a> </li>
 		        <li> <a href="/user/loginForm"> 로그인 </a> </li>
@@ -80,6 +84,6 @@
 		        <li> <a href="/user/logout"> 로그아웃 </a> </li>
 		        </c:if>
 		    </ul>
-		</nav>
+
 	</div>    
 </div> 	
