@@ -9,6 +9,7 @@ import com.green.cbs.dto.BoardDto;
 import com.green.cbs.service.BoardService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -58,8 +59,10 @@ public class BoardController {
     }
 
     @RequestMapping("/listForMe")
-    public String listForMe(){
-        // DB에서 나한테 온 게시글만 리스트로 가져오기
+    public String listForMe(HttpSession session , Model model){
+        String id = (String)session.getAttribute("id");
+        System.out.println("get session : " + id);
+        model.addAttribute("list",service.getForMeList(id));
         return "/user/userPage";
     }
 }
