@@ -17,46 +17,50 @@
             background-color: whitesmoke;
         }
         .header *{
+        	width: 1000px;
+        	height: 70px;
             text-align: center;
             font-size: 36px;
             font-style: normal;
             color: orange;
             background-color: beige;
-            line-height: 50px;
+            line-height: 30px;
             float: left;
         }
         #header h1{
+        	
        		font-family: "Gowun Dodum", sans-serif;
             text-decoration: none;
-            font-weight: 200;
+        }
+        .logo{
+        	width: 30%;
+        	float: left;
         }
         h1 a{
         	text-decoration:none;
         }
-        .menu{
-        	width: 800px;
-        	height:35px;
-        	float: right;
-        }
         
+        .menu{
+        	width: 70%;
+        }
         .menu ul li{
+        width: 25%;
         background-color: beige;
         list-style: none;
-        float: left;
-        line-height: 50px;
         text-align: center;
+        font-size: 29px;
+        float: left;
         }
         
         .menu a{
-        	width:190px;
         	text-decoration:none;
+        	font-size: 29px;
         	display: block;
         	color: light blue;
         	font-weight:bold;
         }
         .menu a:hover{
-        	background-color: lightblue;
-        	color:black;
+        	color:lightblue;
         }
     </style>
 </head>
@@ -64,20 +68,22 @@
 	<div class="logo">
     	<h1> <a id="header" href="/"> CBS Team Project </a> </h1>
     </div>
-	<nav>
-	    <ul>
-	        <c:if test="${session.id == null}">
-	        <li> <a href="board/"> 자유 게시판 </a> </li>
-	        <li> <a href="user/loginForm"> 로그인 </a> </li>
-	        <li> <a href="user/registForm"> 회원가입 </a> </li>
-	        </c:if>
-	        <c:if test="${session.id != null}">
-	        <li> <a href="board/list"> 자유 게시판 </a> </li>
-	        <li> <a href="board/writeForm"> 게시글 작성 </a> </li>
-	        <li> <a href="user/userPage"> 마이페이지 </a> </li>
-	        <li> <a href="user/logout"> 로그아웃 </a> </li>
-	        </c:if>
-	    </ul>
-	</nav>    
+    <div class="menu">
+		<nav>
+		    <ul>
+		        <c:if test="${sessionScope.id == null}">
+		        <li> <a href="/board/"> 자유 게시판 </a> </li>
+		        <li> <a href="/user/loginForm"> 로그인 </a> </li>
+		        <li> <a href="/user/registForm"> 회원가입 </a> </li>
+		        </c:if>
+		        <c:if test="${sessionScope.id != null}">
+		        <li> <a href="/board/list"> 자유 게시판 </a> </li>
+		        <li> <a href="/board/writeForm"> 게시글 작성 </a> </li>
+		        <li> <a href="/user/userPage"> 마이페이지 </a> </li>
+		        <li> <a href="/user/logout"> 로그아웃 </a> </li>
+		        </c:if>
+		    </ul>
+		</nav>
+	</div>    
 </div>
 <hr>    	
