@@ -67,7 +67,6 @@ public class UserController {
     	if(result == 1) {
     		
     		session.setAttribute("id", id);
-    		session.setAttribute("pwd", pwd);
     		
     		return "/user/userPage";
     		
