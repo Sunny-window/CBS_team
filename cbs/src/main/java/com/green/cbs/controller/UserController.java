@@ -22,7 +22,7 @@ public class UserController {
     @RequestMapping("/userPage")
     public String userPage(){
     	
-    	return "/board/listForMe";
+    	return "redirect:/board/listForMe";
     }
     
     @RequestMapping("/regist")
