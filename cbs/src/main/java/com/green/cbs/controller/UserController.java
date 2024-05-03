@@ -83,7 +83,7 @@ public class UserController {
          
          session.invalidate();
     	
-    	return "/index";
+    	return "redirect:/index";
     }
     
     @RequestMapping("/loginForm")
