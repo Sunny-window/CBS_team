@@ -53,7 +53,7 @@ public class BoardController {
         String writer = req.getParameter("writer");
         String reader = req.getParameter("reader");
 
-        service.write(new BoardDto(0, title, content, reader, writer));
+        service.write(new BoardDto(0, title, content, writer,reader ));
 
         return "redirect:/board/list";
     }
