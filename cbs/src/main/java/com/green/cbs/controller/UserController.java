@@ -68,7 +68,7 @@ public class UserController {
     		
     		session.setAttribute("id", id);
     		
-    		return "/user/userPage";
+    		return "redirect:/user/userPage";
     		
     	}else {
     		    		
