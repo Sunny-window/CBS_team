@@ -56,7 +56,7 @@ public class UserController {
     @RequestMapping("/registForm")
     public String registForm() {
     	
-    	return "/user/registForm";
+		return "/user/registForm";
     }
     
     @RequestMapping("/login")
@@ -79,9 +79,9 @@ public class UserController {
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request) {
     	
-    	 HttpSession session = request.getSession();
+    	HttpSession session = request.getSession();
          
-         session.invalidate();
+    	session.invalidate();
     	
     	return "redirect:/index";
     }
