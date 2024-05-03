@@ -54,9 +54,19 @@ public class UserController {
     }
     
     @RequestMapping("/registForm")
-    public String registForm() {
+    public String registForm(HttpSession session) {
     	
-		return "/user/registForm";
+    	String id = (String) session.getAttribute("id");
+    	
+    	if(id == null) {
+    		
+    		return "/user/registForm";
+    		
+    	}else {
+    		
+    		return "redirect:/board/listForMe";
+    	}
+		
     }
     
     @RequestMapping("/login")
@@ -87,9 +97,18 @@ public class UserController {
     }
     
     @RequestMapping("/loginForm")
-    public String loginForm() {
+    public String loginForm(HttpSession session) {
     	
-    	return "/user/loginForm";
+    	String id = (String) session.getAttribute("id");
+    	
+    	if(id == null) {
+    		
+    		return "/user/loginForm";
+    	}else {
+    		
+    		return "redirect:/board/listForMe";
+    	}
+    	
     }
     
 }
