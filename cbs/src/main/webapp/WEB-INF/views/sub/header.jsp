@@ -17,15 +17,13 @@
             background-color: whitesmoke;
         }
         .header *{
-        	width: 1000px;
-        	height: 70px;
+        	
             text-align: center;
             font-size: 36px;
             font-style: normal;
             color: orange;
             background-color: beige;
             line-height: 30px;
-            float: left;
         }
         #header h1{
         	
@@ -33,29 +31,28 @@
             text-decoration: none;
         }
         .logo{
-        	width: 30%;
         	float: left;
+        	color: orange;
         }
         h1 a{
         	text-decoration:none;
         }
         
         .menu{
-        	width: 70%;
+        	margin: 20px;
         }
         .menu ul li{
-        width: 25%;
-        background-color: beige;
-        list-style: none;
-        text-align: center;
-        font-size: 29px;
-        float: left;
+	        width: 25%;
+	        background-color: beige;
+	        list-style: none;
+	        text-align: center;
+	        float: left;
         }
         
         .menu a{
+        	margin: 10px;
         	text-decoration:none;
         	font-size: 29px;
-        	display: block;
         	color: light blue;
         	font-weight:bold;
         }
@@ -85,5 +82,4 @@
 		    </ul>
 		</nav>
 	</div>    
-</div>
-<hr>    	
+</div> 	
