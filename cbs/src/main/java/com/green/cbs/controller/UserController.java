@@ -15,83 +15,80 @@ import jakarta.servlet.http.HttpSession;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    UserService service;
+	@Autowired
+	UserService service;
 
+	@RequestMapping("/userPage")
+	public String userPage() {
 
-    @RequestMapping("/userPage")
-    public String userPage(){
-    	
-    	return "/board/listForMe";
-    }
-    
-    @RequestMapping("/regist")
-    public String regist(HttpServletRequest request, Model model){
-        String id = request.getParameter("id");
-        String password = request.getParameter("pwd");
-        
-        int result = service.idCheck(id);
-        
-        if(result == 1) {
-        	
-        	return "/user/loginForm"; //중복 있으면 ??하겠다
-        	
-        }else {
-        	service.regist(id, password);
-        	
-        	return "/user/loginForm"; //중복이 안되서 ?? 한다
-        }
-        
-        // db에서 유저들 아이디 목록을 가져와서 하나하나 비교한다.
-        // ->
-        // 사용자가 입력한 ID가 DB에 존재하는지 체크한다.
-        
+		return "/board/listForMe";
+	}
 
-        // id가 이미 존재하는지? 
-        // id가 존재하지 않는다면
-        // id와 password를 db에 저장한다
-        
-    }
-    
-    @RequestMapping("/registForm")
-    public String registForm() {
-    	
-    	return "/user/registForm";
-    }
-    
-    @RequestMapping("/login")
-    public String login(@RequestParam("id") String id, @RequestParam("pwd") String pwd, HttpSession session) {
-    	
-    	int result = service.login(id, pwd);
-    	
-    	if(result == 1) {
-    		
-    		session.setAttribute("id", id);
-    		session.setAttribute("pwd", pwd);
-    		
-    		return "/user/userPage";
-    		
-    	}else {
-    		    		
-    		return "/user/loginForm";
-    	}
-    }
-    
-    @RequestMapping("/logout")
-    public String logout(HttpServletRequest request) {
-    	
-    	 HttpSession session = request.getSession();
-         
-         session.invalidate();
-    	
-    	return "../index";
-    }
-    
-    @RequestMapping("/loginForm")
-    public String loginForm() {
-    	
-    	return "/user/loginForm";
-    }
-    
-    
+	@RequestMapping("/regist")
+	public String regist(HttpServletRequest request, Model model) {
+		String id = request.getParameter("id");
+		String password = request.getParameter("pwd");
+
+		int result = service.idCheck(id);
+
+		if (result == 1) {
+
+			return "/user/loginForm"; // 중복 있으면 ??하겠다
+
+		} else {
+			service.regist(id, password);
+
+			return "/user/loginForm"; // 중복이 안되서 ?? 한다
+		}
+
+		// db에서 유저들 아이디 목록을 가져와서 하나하나 비교한다.
+		// ->
+		// 사용자가 입력한 ID가 DB에 존재하는지 체크한다.
+
+		// id가 이미 존재하는지?
+		// id가 존재하지 않는다면
+		// id와 password를 db에 저장한다
+
+	}
+
+	@RequestMapping("/registForm")
+	public String registForm() {
+
+		return "/user/registForm";
+	}
+
+	@RequestMapping("/login")
+	public String login(@RequestParam("id") String id, @RequestParam("pwd") String pwd, HttpSession session) {
+
+		int result = service.login(id, pwd);
+
+		if (result == 1) {
+
+			session.setAttribute("id", id);
+			session.setAttribute("pwd", pwd);
+
+			return "/user/userPage";
+
+		} else {
+
+			return "/user/loginForm";
+		}
+	}
+
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest request) {
+
+		HttpSession session = request.getSession();
+
+		session.invalidate();
+
+		return "../index";
+	}
+
+	@RequestMapping("/loginForm")
+	public String loginForm() {
+
+		return "/user/loginForm";
+	}
+
 }
