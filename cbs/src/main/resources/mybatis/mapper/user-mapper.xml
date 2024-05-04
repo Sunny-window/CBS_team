@@ -5,7 +5,7 @@
   
   <mapper namespace="com.green.cbs.dao.UserDao">
  	 <select id="login">
-  		SELECT count(id) FROM members where id = #{param1} and pwd = #{param2}
+	SELECT count(id) as count, NAME FROM members m INNER JOIN boards b ON m.id = b.writer WHERE m.id = #{param1} and m.pwd = #{param2};
   	 </select>
   	 <insert id="regist">
 		INSERT into members (id, pwd) VALUES (#{param1} , #{param2})

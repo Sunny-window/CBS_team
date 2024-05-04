@@ -1,10 +1,15 @@
 package com.green.cbs.controller;
 
+import java.sql.ResultSet;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.green.cbs.dto.UserDto;
 import com.green.cbs.service.UserService;
 
 import ch.qos.logback.core.model.Model;
@@ -13,10 +18,13 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/user")
+@Component
 public class UserController {
 
 	@Autowired
 	UserService service;
+	@Autowired
+	UserDto dto;
 
 	@RequestMapping("/userPage")
 	public String userPage() {
@@ -33,7 +41,9 @@ public class UserController {
 
 		if (result == 1) {
 
-			return "/user/loginForm"; // 중복 있으면 ??하겠다
+			return "/user/loginForm"; // 중복 있으면 ??하겠다 -> 난 중복이 있으면... 어떻게 할까?
+			// 중복이 있으면 1. aler창을 띄운다 2. 옆에다가 중복 아이디라고 알린다.
+			// 2로 가보자
 
 		} else {
 			service.regist(id, password);
@@ -60,14 +70,13 @@ public class UserController {
 	@RequestMapping("/login")
 	public String login(@RequestParam("id") String id, @RequestParam("pwd") String pwd, HttpSession session) {
 
-		int result = service.login(id, pwd);
-
-		if (result == 1) {
+		List<UserDto> result = service.login(id, pwd); // 서비스가 넘겨준 결과를 받았다. 이제 처리하자
+		if (result.get(0).getCount() == 1) {// 1 성공. 세션에 넣자
 
 			session.setAttribute("id", id);
-			session.setAttribute("pwd", pwd);
+			session.setAttribute("name", result.get(0).getName());
 
-			return "/user/userPage";
+			return "/user/myPage"; // 마이 페이지로 가자
 
 		} else {
 

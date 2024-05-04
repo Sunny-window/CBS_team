@@ -28,22 +28,10 @@ request.setCharacterEncoding("UTF-8");
 <section>
     <h2> My page </h2>
     <h4>내 프로필</h4>
-	아이디<span>${session.id }</span>
+	<span>${sessionScope.name }님, 안녕하세요 :)</span>
 	
-	<h4>나한테 온 게시물 보기</h4>
-	    <table border="1">
-    	<tr>
-    		<th>번호</th>
-    		<th>제목</th>
-    		<th>작성자</th>
-    	</tr>
-    <c:forEach var="board" items="${list }">
-    	<tr>
-    		<td>${board.bno }</td>
-    		<td><a href="/board/detail">${board.title }</a></td>
-    		<td>${board.writer }</td>
-    	</tr>
-    </c:forEach>
+	<h4><a href="/board/?">나한테 온 게시물 보기</a></h4> <!-- 사이드바로 만들기/ jsp 만들어지면 경로수정-->
+
 </section>
 <footer>
 
