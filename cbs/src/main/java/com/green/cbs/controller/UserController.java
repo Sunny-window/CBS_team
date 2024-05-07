@@ -22,7 +22,7 @@ public class UserController {
     @RequestMapping("/userPage")
     public String userPage(){
     	
-    	return "/board/listForMe";
+    	return "redirect:/board/listForMe";
     }
     
     @RequestMapping("/regist")
@@ -54,9 +54,19 @@ public class UserController {
     }
     
     @RequestMapping("/registForm")
-    public String registForm() {
+    public String registForm(HttpSession session) {
     	
-    	return "/user/registForm";
+    	String id = (String) session.getAttribute("id");
+    	
+    	if(id == null) {
+    		
+    		return "/user/registForm";
+    		
+    	}else {
+    		
+    		return "redirect:/board/listForMe";
+    	}
+		
     }
     
     @RequestMapping("/login")
@@ -67,9 +77,8 @@ public class UserController {
     	if(result == 1) {
     		
     		session.setAttribute("id", id);
-    		session.setAttribute("pwd", pwd);
     		
-    		return "/user/userPage";
+    		return "redirect:/user/userPage";
     		
     	}else {
     		    		
@@ -80,18 +89,26 @@ public class UserController {
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request) {
     	
-    	 HttpSession session = request.getSession();
+    	HttpSession session = request.getSession();
          
-         session.invalidate();
+    	session.invalidate();
     	
-    	return "../index";
+    	return "redirect:/";
     }
     
     @RequestMapping("/loginForm")
-    public String loginForm() {
+    public String loginForm(HttpSession session) {
     	
-    	return "/user/loginForm";
+    	String id = (String) session.getAttribute("id");
+    	
+    	if(id == null) {
+    		
+    		return "/user/loginForm";
+    	}else {
+    		
+    		return "redirect:/board/listForMe";
+    	}
+    	
     }
-    
     
 }

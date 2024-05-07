@@ -29,11 +29,14 @@ request.setCharacterEncoding("UTF-8");
     		<th>공개범위</th>
     	</tr>
     	<tr>
-    		<td>${board.bno }</td>
-    		<td>${board.title }</td>
-    		<td>${board.content }</td>
-    		<td>${board.writer }</td>
-    		<td>${board.reader }</td>
+		  <td>${board.bno }</td>
+          <td>${board.title }</td>
+          <td>${board.content }</td>
+          <td>${board.writer }</td>
+          <td>
+	          <c:if test="${board.reader eq null}"> 전체 공개 </c:if>
+	          <c:if test="${board.reader != null}"> ${board.reader } </c:if>
+         </td>
     	</tr>
     </table>
 </section>
